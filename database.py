@@ -19,10 +19,16 @@ def create_table():
     conn = get_connection()
     conn.execute("""
     CREATE TABLE IF NOT EXISTS resumes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        filename TEXT,
-        skills TEXT,
-        status TEXT
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    filename TEXT,
+    name TEXT,
+    email TEXT,
+    phone TEXT,
+    skills TEXT,
+    education TEXT,
+    experience TEXT,
+    status TEXT
+
     )
     """)
     conn.commit()

@@ -1,22 +1,26 @@
-from openai import OpenAI
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+from openai import OpenAI
 
+# Load .env file
 load_dotenv()
 
+# Create client
 client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY")
+    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1"
 )
 
+# Test prompt
 response = client.chat.completions.create(
-    model="meta-llama/llama-3.2-3b-instruct:free",
+    model="llama-3.1-8b-instant",
     messages=[
         {
             "role": "user",
-            "content": "What is Python?"
+            "content": "Hello, test message"
         }
     ]
 )
 
+# Print output
 print(response.choices[0].message.content)
