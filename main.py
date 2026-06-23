@@ -129,4 +129,3 @@ def resume_status(resume_id: int):
         "skills": row["skills"].split(","),
         "status": row["status"]
     }
-
